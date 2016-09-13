@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+# fail fast
+set -e
+
+BUILD_DIR="$1"
+CACHE_DIR="$2"
+ENV_DIR="$3"
+PROFILE_PATH="$BUILD_DIR/.profile.d/git-sha.sh"
+
+create_env() {
+  # populate profile.d
+  mkdir -p $(dirname $PROFILE_PATH)
+}
+
+write_profile() {
+  echo "=====> Writing SOURCE_VERSION ($SOURCE_VERSION) to $PROFILE_PATH"
+  echo "export GIT_SHA=\"$SOURCE_VERSION\"" >> $PROFILE_PATH
+}
+
+create_env
+write_profile
+
+exit 0

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "------> Detecting if we can use buildpack"
+
+exit 0
