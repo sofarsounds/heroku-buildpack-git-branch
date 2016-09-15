@@ -8,6 +8,7 @@ BUILD_DIR="$1"
 CACHE_DIR="$2"
 ENV_DIR="$3"
 PROFILE_PATH="$BUILD_DIR/.profile.d/git-branch.sh"
+SOURCE_VERSION="6f171e6e7a30f740e75198edef3dd8c6d05b93d3"
 
 echo "$SOURCE_VERSION"
 
@@ -17,7 +18,7 @@ create_env() {
 }
 
 write_profile() {
-  BRANCH="$(git ls-remote git@github.com:sofarsounds/sofar-main.git | grep $SOURCE_VERSION | sed 's/^.*refs\/heads\///' | head -1 | sed 's/\//_/')"
+  BRANCH="$(git ls-remote git@github.com:sofarsounds/sofar-main.git | grep 6f171e6e7a30f740e75198edef3dd8c6d05b93d3 | sed 's/^.*refs\/heads\///' | head -1 | sed 's/\//_/')"
 
   echo "=====> Writing branch version ($BRANCH) to $PROFILE_PATH"
   echo "Branch version is $BRANCH"
