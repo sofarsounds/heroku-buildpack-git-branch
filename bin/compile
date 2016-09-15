@@ -17,7 +17,7 @@ create_env() {
 }
 
 write_profile() {
-  BRANCH="$(git ls-remote git@github.com:sofarsounds/sofar-main.git | grep $SOURCE_VERSION | sed 's/^.*refs\/heads\///' | sed 's/\//_/')"
+  BRANCH="$(git ls-remote git@github.com:sofarsounds/sofar-main.git | grep $SOURCE_VERSION | sed 's/^.*refs\/heads\///' | head -1 | sed 's/\//_/')"
 
   echo "=====> Writing branch version ($BRANCH) to $PROFILE_PATH"
   echo "Branch version is $BRANCH"
